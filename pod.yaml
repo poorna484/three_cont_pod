@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-multi-container-pod
+  labels:
+    app: fun-pod
+spec:
+  containers:
+    - name: quote-container
+      image: busybox
+      command: ["sh", "-c"]
+      args: ["while true; do echo '💡 Quote: Keep pushing forward!'; sleep 5; done"]
+
+    - name: fortune-container
+      image: busybox
+      command: ["sh", "-c"]
+      args: ["while true; do echo '🎲 Fortune: Today is your lucky day!'; sleep 7; done"]
+
+    - name: cowsay-container
+      image: busybox
+      command: ["sh", "-c"]
+      args: ["while true; do echo '🐮 Moo! Keep learning Kubernetes!'; sleep 10; done"]
+
